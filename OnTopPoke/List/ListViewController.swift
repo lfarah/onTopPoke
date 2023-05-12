@@ -17,6 +17,10 @@ class ListViewController: UIViewController {
 
     private var species: [Species] = []
 
+    private var isLoading = false
+    private let itemsPerPage = 20
+    private var pageNumber = 0
+
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,15 +52,21 @@ class ListViewController: UIViewController {
     }
 
     private func fetchSpecies() {
+        guard !isLoading else {
+            return
+        }
+        
+        isLoading = true
         do {
             // TODO Consider pagination
-            try requestHandler.request(route: .getSpeciesList(limit: 20, offset: 0)) { [weak self] (result: Result<SpeciesResponse, Error>) -> Void in
+            try requestHandler.request(route: .getSpeciesList(limit: itemsPerPage, offset: pageNumber * self.itemsPerPage)) { [weak self] (result: Result<SpeciesResponse, Error>) -> Void in
                 switch result {
                 case .success(let response):
                     self?.didFetchSpecies(response: response)
                 case .failure:
                     print("TODO handle network failures")
                 }
+                self?.isLoading = false
             }
         } catch {
             print("TODO handle request handling failures failures")
@@ -64,7 +74,7 @@ class ListViewController: UIViewController {
     }
 
     private func didFetchSpecies(response: SpeciesResponse) {
-        species = response.results
+        species += response.results
         tableView.reloadData()
     }
 }
@@ -87,5 +97,15 @@ extension ListViewController: UITableViewDelegate {
 
         let viewController = DetailsViewController(species: species[indexPath.row])
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+
+        if offsetY > contentHeight - scrollView.frame.size.height {
+            pageNumber += 1
+            fetchSpecies()
+        }
     }
 }
