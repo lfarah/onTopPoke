@@ -8,6 +8,8 @@ import UIKit
 class DetailsViewController: UIViewController {
     let species: Species
 
+    let requestHandler: RequestHandling = RequestHandler()
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,5 +53,19 @@ class DetailsViewController: UIViewController {
 
     private func loadDetails() {
         // TODO fetch details using your request handler, using the APIRouter endpoints
+        do {
+            try requestHandler.request(route: .getSpecies(species.url)) { [weak self] (result: Result<SpeciesDetails, Error>) -> Void in
+                switch result {
+                case .success(let details):
+                    print("details: \(details)")
+                case .failure(let error):
+                    // TODO: Error handling
+                    print("error: \(error)")
+                }
+            }
+        } catch {
+            // TODO: handle request handling failures failures
+            print("TODO handle request handling failures failures")
+        }
     }
 }

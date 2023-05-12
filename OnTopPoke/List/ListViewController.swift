@@ -12,7 +12,7 @@ import UIKit
 /// Not required, but feel free to improve/reorganize the ViewController however you like.
 class ListViewController: UIViewController {
     /// TODO, replace with your own `RequestHandler`
-    private let requestHandler: RequestHandling = FakeRequestHandler()
+    private let requestHandler: RequestHandling = RequestHandler()
 
     private var species: [Species] = []
 

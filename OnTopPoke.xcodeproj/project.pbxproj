@@ -23,6 +23,8 @@
 		C2C6EDAF2A0E76FF00633026 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDAE2A0E76FF00633026 /* APIRoute.swift */; };
 		C2C6EDB12A0E770500633026 /* FakeRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDB02A0E770500633026 /* FakeRequestHandler.swift */; };
 		C2C6EDB32A0E770B00633026 /* RequestHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDB22A0E770B00633026 /* RequestHandling.swift */; };
+		C2C6EDB92A0E7A1B00633026 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDB82A0E7A1B00633026 /* RequestHandler.swift */; };
+		C2C6EDBC2A0E7A7D00633026 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C2C6EDBB2A0E7A7D00633026 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		C2C6EDAE2A0E76FF00633026 /* APIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
 		C2C6EDB02A0E770500633026 /* FakeRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeRequestHandler.swift; sourceTree = "<group>"; };
 		C2C6EDB22A0E770B00633026 /* RequestHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandling.swift; sourceTree = "<group>"; };
+		C2C6EDB82A0E7A1B00633026 /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C6EDBC2A0E7A7D00633026 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +179,7 @@
 			children = (
 				C2C6EDAE2A0E76FF00633026 /* APIRoute.swift */,
 				C2C6EDB02A0E770500633026 /* FakeRequestHandler.swift */,
+				C2C6EDB82A0E7A1B00633026 /* RequestHandler.swift */,
 				C2C6EDB22A0E770B00633026 /* RequestHandling.swift */,
 			);
 			path = Network;
@@ -196,6 +201,9 @@
 			dependencies = (
 			);
 			name = OnTopPoke;
+			packageProductDependencies = (
+				C2C6EDBB2A0E7A7D00633026 /* Alamofire */,
+			);
 			productName = OnTopPoke;
 			productReference = C2C6ED6F2A0E75AF00633026 /* OnTopPoke.app */;
 			productType = "com.apple.product-type.application";
@@ -268,6 +276,9 @@
 				Base,
 			);
 			mainGroup = C2C6ED662A0E75AF00633026;
+			packageReferences = (
+				C2C6EDBA2A0E7A7D00633026 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = C2C6ED702A0E75AF00633026 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -312,6 +323,7 @@
 			files = (
 				C2C6EDB12A0E770500633026 /* FakeRequestHandler.swift in Sources */,
 				C2C6ED732A0E75AF00633026 /* AppDelegate.swift in Sources */,
+				C2C6EDB92A0E7A1B00633026 /* RequestHandler.swift in Sources */,
 				C2C6EDA72A0E76E800633026 /* ListViewController.swift in Sources */,
 				C2C6ED752A0E75AF00633026 /* SceneDelegate.swift in Sources */,
 				C2C6EDAF2A0E76FF00633026 /* APIRoute.swift in Sources */,
@@ -648,6 +660,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2C6EDBA2A0E7A7D00633026 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2C6EDBB2A0E7A7D00633026 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2C6EDBA2A0E7A7D00633026 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2C6ED672A0E75AF00633026 /* Project object */;
 }
