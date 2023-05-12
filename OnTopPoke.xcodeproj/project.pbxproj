@@ -28,6 +28,7 @@
 		C2C6EDBF2A0E817C00633026 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C2C6EDBE2A0E817C00633026 /* Kingfisher */; };
 		C2C6EDC12A0E886F00633026 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC02A0E886F00633026 /* UITableView+Extensions.swift */; };
 		C2C6EDC52A0E92D900633026 /* EvolutionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC42A0E92D900633026 /* EvolutionInfoView.swift */; };
+		C2C6EDC72A0ECD5000633026 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC62A0ECD5000633026 /* ListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		C2C6EDB82A0E7A1B00633026 /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		C2C6EDC02A0E886F00633026 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		C2C6EDC42A0E92D900633026 /* EvolutionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionInfoView.swift; sourceTree = "<group>"; };
+		C2C6EDC62A0ECD5000633026 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				C2C6EDA42A0E76DE00633026 /* ListCell.swift */,
 				C2C6EDA62A0E76E800633026 /* ListViewController.swift */,
+				C2C6EDC62A0ECD5000633026 /* ListViewModel.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				C2C6EDB92A0E7A1B00633026 /* RequestHandler.swift in Sources */,
 				C2C6EDA72A0E76E800633026 /* ListViewController.swift in Sources */,
 				C2C6ED752A0E75AF00633026 /* SceneDelegate.swift in Sources */,
+				C2C6EDC72A0ECD5000633026 /* ListViewModel.swift in Sources */,
 				C2C6EDAF2A0E76FF00633026 /* APIRoute.swift in Sources */,
 				C2C6EDAB2A0E76F300633026 /* Species.swift in Sources */,
 				C2C6EDA92A0E76EE00633026 /* EvolutionChain.swift in Sources */,

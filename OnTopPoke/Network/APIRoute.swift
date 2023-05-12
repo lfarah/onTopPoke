@@ -45,6 +45,6 @@ enum APIRoute {
             preconditionFailure("Missing URL with parameters for url: \(url)")
         }
 
-        return URLRequest(url: parametrizedURL)
+        return URLRequest(url: parametrizedURL, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
     }
 }
