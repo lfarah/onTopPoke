@@ -77,7 +77,6 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(type: ListCell.self, indexPath: indexPath)
         cell.configure(with: species[indexPath.row])
-//        cell.imageView?.kf.setImage(with: selectedSpecies.imageURL)
         return cell
     }
 }
