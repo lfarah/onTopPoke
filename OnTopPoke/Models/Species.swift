@@ -10,4 +10,11 @@ struct SpeciesResponse: Codable {
 struct Species: Codable {
     let name: String
     let url: URL
+    
+    // TODO: Write tests
+    var imageURL: URL? {
+        let components = url.absoluteString.components(separatedBy: "/")
+        let id = components[components.count - 2]
+        return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png")
+    }
 }

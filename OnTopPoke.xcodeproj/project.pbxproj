@@ -25,6 +25,8 @@
 		C2C6EDB32A0E770B00633026 /* RequestHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDB22A0E770B00633026 /* RequestHandling.swift */; };
 		C2C6EDB92A0E7A1B00633026 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDB82A0E7A1B00633026 /* RequestHandler.swift */; };
 		C2C6EDBC2A0E7A7D00633026 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C2C6EDBB2A0E7A7D00633026 /* Alamofire */; };
+		C2C6EDBF2A0E817C00633026 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C2C6EDBE2A0E817C00633026 /* Kingfisher */; };
+		C2C6EDC12A0E886F00633026 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC02A0E886F00633026 /* UITableView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,7 @@
 		C2C6EDB02A0E770500633026 /* FakeRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeRequestHandler.swift; sourceTree = "<group>"; };
 		C2C6EDB22A0E770B00633026 /* RequestHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandling.swift; sourceTree = "<group>"; };
 		C2C6EDB82A0E7A1B00633026 /* RequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		C2C6EDC02A0E886F00633026 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C6EDBF2A0E817C00633026 /* Kingfisher in Frameworks */,
 				C2C6EDBC2A0E7A7D00633026 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +126,7 @@
 				C2C6EDB62A0E77B100633026 /* Models */,
 				C2C6EDB72A0E77BA00633026 /* Network */,
 				C2C6ED722A0E75AF00633026 /* AppDelegate.swift */,
+				C2C6EDC02A0E886F00633026 /* UITableView+Extensions.swift */,
 				C2C6ED742A0E75AF00633026 /* SceneDelegate.swift */,
 				C2C6ED7B2A0E75B000633026 /* Assets.xcassets */,
 				C2C6ED7D2A0E75B000633026 /* LaunchScreen.storyboard */,
@@ -203,6 +208,7 @@
 			name = OnTopPoke;
 			packageProductDependencies = (
 				C2C6EDBB2A0E7A7D00633026 /* Alamofire */,
+				C2C6EDBE2A0E817C00633026 /* Kingfisher */,
 			);
 			productName = OnTopPoke;
 			productReference = C2C6ED6F2A0E75AF00633026 /* OnTopPoke.app */;
@@ -278,6 +284,7 @@
 			mainGroup = C2C6ED662A0E75AF00633026;
 			packageReferences = (
 				C2C6EDBA2A0E7A7D00633026 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C2C6EDBD2A0E817C00633026 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = C2C6ED702A0E75AF00633026 /* Products */;
 			projectDirPath = "";
@@ -329,6 +336,7 @@
 				C2C6EDAF2A0E76FF00633026 /* APIRoute.swift in Sources */,
 				C2C6EDAB2A0E76F300633026 /* Species.swift in Sources */,
 				C2C6EDA92A0E76EE00633026 /* EvolutionChain.swift in Sources */,
+				C2C6EDC12A0E886F00633026 /* UITableView+Extensions.swift in Sources */,
 				C2C6EDA52A0E76DE00633026 /* ListCell.swift in Sources */,
 				C2C6EDA32A0E76CE00633026 /* DetailsViewController.swift in Sources */,
 				C2C6EDB32A0E770B00633026 /* RequestHandling.swift in Sources */,
@@ -670,6 +678,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C2C6EDBD2A0E817C00633026 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -677,6 +693,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C2C6EDBA2A0E7A7D00633026 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		C2C6EDBE2A0E817C00633026 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2C6EDBD2A0E817C00633026 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

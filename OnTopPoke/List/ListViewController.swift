@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 /// Main view showing the list of Pokémon
 ///
@@ -19,13 +20,13 @@ class ListViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseIdentifier)
+        tableView.register(type: ListCell.self)
         return tableView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         title = "POKéMON"
 
         setupViews()
@@ -74,12 +75,9 @@ extension ListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.reuseIdentifier, for: indexPath)
-        cell.textLabel?.text = species[indexPath.row].name
-
-        // TODO Fetch the image remotely, based on the Pokémon ID ("list index + 1")
-        // TODO This requires `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{species_id}.png`
-        cell.imageView?.image = UIImage(named: "PlaceholderImage")
+        let cell = tableView.dequeueReusableCell(type: ListCell.self, indexPath: indexPath)
+        cell.configure(with: species[indexPath.row])
+//        cell.imageView?.kf.setImage(with: selectedSpecies.imageURL)
         return cell
     }
 }
