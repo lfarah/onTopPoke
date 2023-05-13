@@ -33,6 +33,7 @@
 		C2C6EDCB2A0FD05700633026 /* EvolutionContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDCA2A0FD05700633026 /* EvolutionContainerView.swift */; };
 		C2C6EDCE2A0FD71600633026 /* SpeciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDCD2A0FD71600633026 /* SpeciesTests.swift */; };
 		C2C6EDD02A0FD8A900633026 /* ListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDCF2A0FD8A900633026 /* ListViewModelTests.swift */; };
+		C2C6EDD42A0FF2CD00633026 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C2C6EDD32A0FF2CD00633026 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		C2C6EDCA2A0FD05700633026 /* EvolutionContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionContainerView.swift; sourceTree = "<group>"; };
 		C2C6EDCD2A0FD71600633026 /* SpeciesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesTests.swift; sourceTree = "<group>"; };
 		C2C6EDCF2A0FD8A900633026 /* ListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelTests.swift; sourceTree = "<group>"; };
+		C2C6EDD32A0FF2CD00633026 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		C2C6ED662A0E75AF00633026 = {
 			isa = PBXGroup;
 			children = (
+				C2C6EDD32A0FF2CD00633026 /* README.md */,
 				C2C6ED712A0E75AF00633026 /* OnTopPoke */,
 				C2C6ED882A0E75B000633026 /* OnTopPokeTests */,
 				C2C6ED922A0E75B000633026 /* OnTopPokeUITests */,
@@ -321,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C6EDD42A0FF2CD00633026 /* README.md in Resources */,
 				C2C6ED7F2A0E75B000633026 /* LaunchScreen.storyboard in Resources */,
 				C2C6ED7C2A0E75B000633026 /* Assets.xcassets in Resources */,
 			);
