@@ -11,12 +11,11 @@ public struct Species: Codable {
     let name: String
     let url: URL
     
-    // TODO: Write tests
     var imageURL: URL? {
         let components = url.absoluteString.components(separatedBy: "/")
         let id = components[components.count - 2]
         if let id = Int(id) {
-            return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png")
+            return URL(string: "\(APIRoute.speciesImageBaseURL)\(id).png")
         } else {
             return nil
         }

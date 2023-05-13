@@ -11,6 +11,7 @@ enum APIRoute {
 
     private var baseURLString: String { "https://pokeapi.co/api/v2/" }
 
+    static let speciesImageBaseURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
     private var url: URL? {
         switch self {
         case .getSpecies(let url),
