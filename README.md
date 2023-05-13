@@ -1,19 +1,25 @@
 # OnTopPoke
 OnTopPoke is an app that helps users look up the evolution chain of Pokémon.
 
-| Demo |
-| --- |
+<img src="https://github.com/lfarah/onTopPoke/assets/6511079/34c84fe5-d986-4d9f-bd56-b1f2e1d99063" width="300" height="300">
 
-[x] List of Pokemon species with name and image
-[x] Detail page with evolution chain
-[x] Pokemon description
-[x] Error handling
-[x] UI Components
-[x] Pagination
-[x] Pull to refresh
-[x] Linter
-[x] Unit tests
-[x] UI Tests
+| List | Detail |
+| --- | --- |
+<img src="https://github.com/lfarah/onTopPoke/assets/6511079/b080641c-6746-494e-96a4-0dab33f25f64" width="200" height="400"> | <img src="https://github.com/lfarah/onTopPoke/assets/6511079/ba9acf62-5971-407e-abd5-732f33f45e7c" width="200" height="400">
+
+
+
+
+- [x] List of Pokemon species with name and image
+- [x] Detail page with evolution chain
+- [x] Pokemon description
+- [x] Error handling
+- [x] UI Components
+- [x] Pagination
+- [x] Pull to refresh
+- [x] Linter
+- [x] Unit tests
+- [x] UI Tests
 
 ### How to run the app
 The external libraries are installed in the project with SPM, so just pressing play should run the project correctly.
