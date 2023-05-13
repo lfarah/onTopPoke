@@ -35,11 +35,8 @@ class DetailsViewController: UIViewController {
         return view
     }()
     
-    let evolutionStack: UIStackView = {
-        let view = UIStackView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.axis = .horizontal
-        view.distribution = .equalCentering
+    let evolutionContainer: EvolutionContainerView = {
+        let view = EvolutionContainerView(frame: .zero)
         return view
     }()
     
@@ -65,8 +62,8 @@ class DetailsViewController: UIViewController {
             self?.descriptionLabel.text = description
         }
         
-        viewModel.updatedEvolutionChain = { [weak self] chain in
-            self?.setupEvolution(with: chain)
+        viewModel.updatedEvolutionChain = { [weak self] chain, currentSpecies in
+            self?.evolutionContainer.setupEvolution(with: chain, currentSpecies: currentSpecies)
         }
     }
     
@@ -77,7 +74,7 @@ class DetailsViewController: UIViewController {
         view.addSubview(imageView)
         view.addSubview(descriptionLabel)
         view.addSubview(evolutionTitleLabel)
-        view.addSubview(evolutionStack)
+        view.addSubview(evolutionContainer)
         
         NSLayoutConstraint.activate([
             
@@ -94,45 +91,9 @@ class DetailsViewController: UIViewController {
             evolutionTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             evolutionTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            evolutionStack.topAnchor.constraint(equalTo: evolutionTitleLabel.bottomAnchor, constant: 8),
-            evolutionStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            evolutionStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            evolutionContainer.topAnchor.constraint(equalTo: evolutionTitleLabel.bottomAnchor, constant: 8),
+            evolutionContainer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            evolutionContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
-    }
-    
-    // TODO: Refactor into smaller views
-    func setupEvolution(with evolutions: (Species, Species?, Species?)) {
-        
-        let isFirstPokemonSelected = evolutions.0.url == viewModel.species.url
-        let isSecondPokemonSelected = evolutions.1?.url == viewModel.species.url as URL?
-        let isThirdPokemonSelected = evolutions.2?.url == viewModel.species.url as URL?
-        
-        let firstEvolutionView = EvolutionInfoView(frame: .zero)
-        firstEvolutionView.configure(with: evolutions.0, type: isFirstPokemonSelected ? .current : .devolution)
-        evolutionStack.addArrangedSubview(firstEvolutionView)
-        
-        if let pokemon = evolutions.1 {
-            let secondEvolutionView = EvolutionInfoView(frame: .zero)
-            secondEvolutionView.configure(with: pokemon, type: isSecondPokemonSelected ? .current : isThirdPokemonSelected ? .devolution : .evolution)
-            
-            let arrowIcon = UIImageView(frame: .zero)
-            arrowIcon.translatesAutoresizingMaskIntoConstraints = false
-            arrowIcon.image = UIImage(systemName: "arrow.forward")
-            arrowIcon.contentMode = .scaleAspectFit
-            
-            evolutionStack.addArrangedSubview(arrowIcon)
-            evolutionStack.addArrangedSubview(secondEvolutionView)
-        }
-        
-        if let pokemon = evolutions.2 {
-            let thirdEvolutionView = EvolutionInfoView(frame: .zero)
-            thirdEvolutionView.configure(with: pokemon, type: isThirdPokemonSelected ? .current : .evolution)
-            let arrowIcon = UIImageView(frame: .zero)
-            arrowIcon.translatesAutoresizingMaskIntoConstraints = false
-            arrowIcon.image = UIImage(systemName: "arrow.forward")
-            arrowIcon.contentMode = .scaleAspectFit
-            evolutionStack.addArrangedSubview(arrowIcon)
-            evolutionStack.addArrangedSubview(thirdEvolutionView)
-        }
     }
 }

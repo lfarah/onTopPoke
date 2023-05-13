@@ -14,7 +14,7 @@ class DetailsViewModel {
     var speciesDetails: SpeciesDetails?
     
     var updatedDescription: ((_ description: String?) -> Void)?
-    var updatedEvolutionChain: ((_ chain: (Species, Species?, Species?)) -> Void)?
+    var updatedEvolutionChain: ((_ chain: (Species, Species?, Species?), _ currentSpecies: Species) -> Void)?
     
     init(species: Species,
          requestHandler: RequestHandling = RequestHandler()) {
@@ -25,7 +25,7 @@ class DetailsViewModel {
             self?.updatedDescription?(self?.speciesDetails?.flavorTextEntries.filter { $0.language.name == "en" }.first?.flavorText)
             self?.loadEvolution { details in
                 guard let self = self else { return }
-                self.updatedEvolutionChain?(self.parseEvolution(chain: details))
+                self.updatedEvolutionChain?(self.parseEvolution(chain: details), self.species)
             }
         }
     }
