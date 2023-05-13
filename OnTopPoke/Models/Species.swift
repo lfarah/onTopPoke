@@ -15,6 +15,10 @@ public struct Species: Codable {
     var imageURL: URL? {
         let components = url.absoluteString.components(separatedBy: "/")
         let id = components[components.count - 2]
-        return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png")
+        if let id = Int(id) {
+            return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png")
+        } else {
+            return nil
+        }
     }
 }

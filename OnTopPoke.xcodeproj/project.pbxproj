@@ -31,6 +31,8 @@
 		C2C6EDC72A0ECD5000633026 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC62A0ECD5000633026 /* ListViewModel.swift */; };
 		C2C6EDC92A0FC8E100633026 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC82A0FC8E100633026 /* DetailsViewModel.swift */; };
 		C2C6EDCB2A0FD05700633026 /* EvolutionContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDCA2A0FD05700633026 /* EvolutionContainerView.swift */; };
+		C2C6EDCE2A0FD71600633026 /* SpeciesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDCD2A0FD71600633026 /* SpeciesTests.swift */; };
+		C2C6EDD02A0FD8A900633026 /* ListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDCF2A0FD8A900633026 /* ListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		C2C6EDC62A0ECD5000633026 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		C2C6EDC82A0FC8E100633026 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		C2C6EDCA2A0FD05700633026 /* EvolutionContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionContainerView.swift; sourceTree = "<group>"; };
+		C2C6EDCD2A0FD71600633026 /* SpeciesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesTests.swift; sourceTree = "<group>"; };
+		C2C6EDCF2A0FD8A900633026 /* ListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				C2C6ED892A0E75B000633026 /* OnTopPokeTests.swift */,
+				C2C6EDCD2A0FD71600633026 /* SpeciesTests.swift */,
+				C2C6EDCF2A0FD8A900633026 /* ListViewModelTests.swift */,
 			);
 			path = OnTopPokeTests;
 			sourceTree = "<group>";
@@ -387,7 +393,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C6EDCE2A0FD71600633026 /* SpeciesTests.swift in Sources */,
 				C2C6ED8A2A0E75B000633026 /* OnTopPokeTests.swift in Sources */,
+				C2C6EDD02A0FD8A900633026 /* ListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

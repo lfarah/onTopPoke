@@ -6,7 +6,13 @@ struct FakeRequestError: Error {}
 ///
 /// This is to be replaced by a proper implementation that actually makes the network call given the APIRoute, parses the response, and returns the resulting object.
 class FakeRequestHandler: RequestHandling {
+    var isError: Bool = false
+    
     func request<T>(route: APIRoute, completion: @escaping (Result<T, Error>) -> Void) throws {
+        guard !isError else {
+            completion(.failure(FakeRequestError()))
+            return
+        }
         switch route {
         case .getSpeciesList(let limit, _):
             if let example = SpeciesResponse.example(count: limit) as? T {
