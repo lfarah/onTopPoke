@@ -15,6 +15,8 @@ class ListViewController: UIViewController {
     
     let viewModel: ListViewModel
     
+    var showDetails: ((_ species: Species) -> Void)?
+    
     init(viewModel: ListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -113,8 +115,7 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let viewController = DetailsViewController(species: viewModel.species[indexPath.row])
-        navigationController?.pushViewController(viewController, animated: true)
+        showDetails?(viewModel.species[indexPath.row])
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

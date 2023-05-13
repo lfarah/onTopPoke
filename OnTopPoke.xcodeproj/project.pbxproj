@@ -29,6 +29,7 @@
 		C2C6EDC12A0E886F00633026 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC02A0E886F00633026 /* UITableView+Extensions.swift */; };
 		C2C6EDC52A0E92D900633026 /* EvolutionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC42A0E92D900633026 /* EvolutionInfoView.swift */; };
 		C2C6EDC72A0ECD5000633026 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC62A0ECD5000633026 /* ListViewModel.swift */; };
+		C2C6EDC92A0FC8E100633026 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6EDC82A0FC8E100633026 /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		C2C6EDC02A0E886F00633026 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		C2C6EDC42A0E92D900633026 /* EvolutionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionInfoView.swift; sourceTree = "<group>"; };
 		C2C6EDC62A0ECD5000633026 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		C2C6EDC82A0FC8E100633026 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C2C6EDA22A0E76CE00633026 /* DetailsViewController.swift */,
+				C2C6EDC82A0FC8E100633026 /* DetailsViewModel.swift */,
 				C2C6EDC42A0E92D900633026 /* EvolutionInfoView.swift */,
 			);
 			path = Details;
@@ -337,6 +340,7 @@
 				C2C6EDB12A0E770500633026 /* FakeRequestHandler.swift in Sources */,
 				C2C6ED732A0E75AF00633026 /* AppDelegate.swift in Sources */,
 				C2C6EDB92A0E7A1B00633026 /* RequestHandler.swift in Sources */,
+				C2C6EDC92A0FC8E100633026 /* DetailsViewModel.swift in Sources */,
 				C2C6EDA72A0E76E800633026 /* ListViewController.swift in Sources */,
 				C2C6ED752A0E75AF00633026 /* SceneDelegate.swift in Sources */,
 				C2C6EDC72A0ECD5000633026 /* ListViewModel.swift in Sources */,

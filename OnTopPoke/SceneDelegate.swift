@@ -15,11 +15,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        // If I had more time, I've built a Coordinator.
         let window = UIWindow(windowScene: windowScene)
         let viewModel = ListViewModel(requestHandler: RequestHandler())
-        let navigationController = UINavigationController(rootViewController: ListViewController(viewModel: viewModel))
+        
+        let viewController = ListViewController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.navigationBar.prefersLargeTitles = true
         window.rootViewController = navigationController
+
+        viewController.showDetails = { species in
+            let vm = DetailsViewModel(species: species)
+            let vc = DetailsViewController(viewModel: vm)
+            navigationController.pushViewController(vc, animated: true)
+        }
         self.window = window
         window.makeKeyAndVisible()
     }
