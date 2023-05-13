@@ -1,23 +1,13 @@
 import UIKit
 import Kingfisher
 
-/// Main view showing the list of Pokémon
-///
-/// The tableview is setup already. but fetching from a fake request handler, returning fake Pokémon, and showing a local image
-/// Goal:
-/// - Use your own `RequestHandler` to fetch Pokémon from the backend
-/// - Display the pokemon name and image (fetched remotely)
-/// - Implement pagination to simulate infinite scrolling
-/// - Error handling
-///
-/// Not required, but feel free to improve/reorganize the ViewController however you like.
-class ListViewController: UIViewController {
+public final class ListViewController: UIViewController {
     
-    let viewModel: ListViewModel
+    private let viewModel: ListViewModel
     
-    var showDetails: ((_ species: Species) -> Void)?
+    public var showDetails: ((_ species: Species) -> Void)?
     
-    init(viewModel: ListViewModel) {
+    public init(viewModel: ListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,7 +30,7 @@ class ListViewController: UIViewController {
         return view
     }()
 
-    let errorLabel: UILabel = {
+    private let errorLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .title1)
@@ -51,12 +41,12 @@ class ListViewController: UIViewController {
         return view
     }()
 
-    @objc func refreshData() {
+    @objc private func refreshData() {
         refreshControl.beginRefreshing()
         viewModel.refreshData()
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "POKéMON"
@@ -99,11 +89,11 @@ class ListViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension ListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.species.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(type: ListCell.self, indexPath: indexPath)
         cell.configure(with: viewModel.species[indexPath.row])
         return cell
@@ -112,13 +102,13 @@ extension ListViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension ListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         showDetails?(viewModel.species[indexPath.row])
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
 

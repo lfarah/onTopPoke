@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EvolutionContainerView: UIView {
+public final class EvolutionContainerView: UIView {
 
     private let evolutionStack: UIStackView = {
         let view = UIStackView()
@@ -27,7 +27,7 @@ class EvolutionContainerView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func layout() {
+    private func layout() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(evolutionStack)
         
@@ -38,7 +38,8 @@ class EvolutionContainerView: UIView {
         ])
     }
     
-    func setupEvolution(with evolutions: (Species, Species?, Species?), currentSpecies: Species) {
+    public func setupEvolution(with evolutions: (Species, Species?, Species?), currentSpecies: Species) {
+        evolutionStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
         let isFirstPokemonSelected = evolutions.0.url == currentSpecies.url
         let isSecondPokemonSelected = evolutions.1?.url == currentSpecies.url as URL?

@@ -7,22 +7,22 @@
 
 import Foundation
 
-class ListViewModel {
-    let requestHandler: RequestHandling
+public final class ListViewModel {
+    private let requestHandler: RequestHandling
     
-    var species: [Species] = []
+    public var species: [Species] = []
     
     private var isLoading = false
     private let itemsPerPage = 20
     private var pageNumber = 0
-    var reloadData: (() -> Void)?
-    var showError: ((_ error: Error) -> Void)?
+    public var reloadData: (() -> Void)?
+    public var showError: ((_ error: Error) -> Void)?
     
     init(requestHandler: RequestHandling = RequestHandler()) {
         self.requestHandler = requestHandler
     }
     
-    func fetchSpecies() {
+    public func fetchSpecies() {
         guard !isLoading else {
             return
         }
@@ -52,12 +52,12 @@ class ListViewModel {
         reloadData?()
     }
     
-    func loadNextPage() {
+    public func loadNextPage() {
         pageNumber += 1
         fetchSpecies()
     }
     
-    @objc func refreshData() {
+    @objc public func refreshData() {
         species = []
         pageNumber = 0
         reloadData?()

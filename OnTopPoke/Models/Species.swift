@@ -7,7 +7,7 @@ struct SpeciesResponse: Codable {
 }
 
 /// Species object returned as part of the `SpeciesResponse` object from the `getSpeciesList` endpoint
-struct Species: Codable {
+public struct Species: Codable {
     let name: String
     let url: URL
     

@@ -7,14 +7,14 @@
 
 import Foundation
 
-class DetailsViewModel {
-    let species: Species
-    let requestHandler: RequestHandling
+public final class DetailsViewModel {
+    public let species: Species
+    private let requestHandler: RequestHandling
     
-    var speciesDetails: SpeciesDetails?
+    public var speciesDetails: SpeciesDetails?
     
-    var updatedDescription: ((_ description: String?) -> Void)?
-    var updatedEvolutionChain: ((_ chain: (Species, Species?, Species?), _ currentSpecies: Species) -> Void)?
+    public var updatedDescription: ((_ description: String?) -> Void)?
+    public var updatedEvolutionChain: ((_ chain: (Species, Species?, Species?), _ currentSpecies: Species) -> Void)?
     
     init(species: Species,
          requestHandler: RequestHandling = RequestHandler()) {
@@ -72,7 +72,7 @@ class DetailsViewModel {
         }
     }
     
-    func parseEvolution(chain: EvolutionChainDetails) -> (Species, Species?, Species?) {
+    private func parseEvolution(chain: EvolutionChainDetails) -> (Species, Species?, Species?) {
         
         let firstChain = chain.chain
         let secondChain = firstChain.evolvesTo.first

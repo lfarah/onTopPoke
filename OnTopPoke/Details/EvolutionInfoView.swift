@@ -7,15 +7,15 @@
 
 import UIKit
 
-enum EvolutionType {
+public enum EvolutionType {
     case current
     case devolution
     case evolution
 }
 
-final class EvolutionInfoView: UIView {
+public final class EvolutionInfoView: UIView {
 
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .title3)
@@ -26,7 +26,7 @@ final class EvolutionInfoView: UIView {
         return view
     }()
     
-    let pokemonImageView: UIImageView = {
+    private let pokemonImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFit
@@ -64,7 +64,7 @@ final class EvolutionInfoView: UIView {
         ])
     }
     
-    func configure(with species: Species, type: EvolutionType) {
+    public func configure(with species: Species, type: EvolutionType) {
         nameLabel.text = species.name
         pokemonImageView.kf.setImage(with: species.imageURL, placeholder: UIImage(named: "PlaceholderImage"))
         

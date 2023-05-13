@@ -1,16 +1,11 @@
 import UIKit
 import Kingfisher
 
-/// Details view showing the evolution chain of a Pokémon (WIP)
-///
-/// It now only shows a placeholder image, make it so that it also shows the evolution chain of the selected Pokémon, in whatever way you think works best.
-/// The evolution chain url can be fetched using the endpoint `APIRouter.getSpecies(URL)` (returns type `SpeciesDetails`), and the evolution chain details through `APIRouter.getEvolutionChain(URL)` (returns type `EvolutionChainDetails`).
-/// Requires a working `RequestHandler`
-class DetailsViewController: UIViewController {
+public final class DetailsViewController: UIViewController {
     
-    let viewModel: DetailsViewModel
+    private let viewModel: DetailsViewModel
     
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -18,7 +13,7 @@ class DetailsViewController: UIViewController {
         return imageView
     }()
     
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .title3)
@@ -26,7 +21,7 @@ class DetailsViewController: UIViewController {
         return view
     }()
     
-    let evolutionTitleLabel: UILabel = {
+    private let evolutionTitleLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = .preferredFont(forTextStyle: .title2)
@@ -35,12 +30,12 @@ class DetailsViewController: UIViewController {
         return view
     }()
     
-    let evolutionContainer: EvolutionContainerView = {
+    private let evolutionContainer: EvolutionContainerView = {
         let view = EvolutionContainerView(frame: .zero)
         return view
     }()
     
-    init(viewModel: DetailsViewModel) {
+    public init(viewModel: DetailsViewModel) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -50,7 +45,7 @@ class DetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
@@ -68,7 +63,6 @@ class DetailsViewController: UIViewController {
     }
     
     private func setupViews() {
-        // TODO Feel free to set up the screen any way you like
         imageView.kf.setImage(with: viewModel.species.imageURL, placeholder: UIImage(named: "PlaceholderImage"))
         
         view.addSubview(imageView)
