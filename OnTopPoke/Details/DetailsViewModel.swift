@@ -15,12 +15,16 @@ public final class DetailsViewModel {
     
     public var updatedDescription: ((_ description: String?) -> Void)?
     public var updatedEvolutionChain: ((_ chain: (Species, Species?, Species?), _ currentSpecies: Species) -> Void)?
-    
+    public var showError: ((_ error: Error) -> Void)?
+
     init(species: Species,
          requestHandler: RequestHandling = RequestHandler()) {
         self.requestHandler = requestHandler
         self.species = species
         
+    }
+    
+    func load() {
         loadDetails { [weak self] in
             self?.updatedDescription?(self?.speciesDetails?.flavorTextEntries.filter { $0.language.name == "en" }.first?.flavorText)
             self?.loadEvolution { details in
@@ -36,16 +40,13 @@ public final class DetailsViewModel {
                 switch result {
                 case .success(let details):
                     self?.speciesDetails = details
-                    print("details: \(details)")
                 case .failure(let error):
-                    // TODO: Error handling
-                    print("error: \(error)")
+                    self?.showError?(error)
                 }
                 handler()
             }
-        } catch {
-            // TODO: handle request handling failures failures
-            print("TODO handle request handling failures failures")
+        } catch let error {
+            showError?(error)
         }
     }
     
@@ -55,19 +56,16 @@ public final class DetailsViewModel {
         }
         
         do {
-            try requestHandler.request(route: .getEvolutionChain(details.evolutionChain.url)) { (result: Result<EvolutionChainDetails, Error>) -> Void in
+            try requestHandler.request(route: .getEvolutionChain(details.evolutionChain.url)) { [weak self] (result: Result<EvolutionChainDetails, Error>) -> Void in
                 switch result {
                 case .success(let details):
-                    print("details: \(details)")
                     handler(details)
                 case .failure(let error):
-                    // TODO: Error handling
-                    print("error: \(error)")
+                    self?.showError?(error)
                 }
             }
-        } catch {
-            // TODO: handle request handling failures failures
-            print("TODO handle request handling failures failures")
+        } catch let error {
+            showError?(error)
         }
     }
     

@@ -30,6 +30,17 @@ public final class DetailsViewController: UIViewController {
         return view
     }()
     
+    private let errorLabel: UILabel = {
+        let view = UILabel(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.font = .preferredFont(forTextStyle: .title1)
+        view.textColor = UIColor.systemRed
+        view.isHidden = true
+        view.numberOfLines = 0
+        view.backgroundColor = .white
+        return view
+    }()
+    
     private let evolutionContainer: EvolutionContainerView = {
         let view = EvolutionContainerView(frame: .zero)
         return view
@@ -60,6 +71,13 @@ public final class DetailsViewController: UIViewController {
         viewModel.updatedEvolutionChain = { [weak self] chain, currentSpecies in
             self?.evolutionContainer.setupEvolution(with: chain, currentSpecies: currentSpecies)
         }
+        
+        viewModel.showError = { [weak self] error in
+            self?.errorLabel.text = error.localizedDescription
+            self?.errorLabel.isHidden = false
+        }
+        
+        viewModel.load()
     }
     
     private func setupViews() {
@@ -69,7 +87,8 @@ public final class DetailsViewController: UIViewController {
         view.addSubview(descriptionLabel)
         view.addSubview(evolutionTitleLabel)
         view.addSubview(evolutionContainer)
-        
+        view.addSubview(errorLabel)
+
         NSLayoutConstraint.activate([
             
             imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -87,7 +106,11 @@ public final class DetailsViewController: UIViewController {
             
             evolutionContainer.topAnchor.constraint(equalTo: evolutionTitleLabel.bottomAnchor, constant: 8),
             evolutionContainer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            evolutionContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+            evolutionContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            
+            errorLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            errorLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            errorLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
 }
