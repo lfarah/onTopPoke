@@ -60,7 +60,7 @@ public final class EvolutionInfoView: UIView {
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             nameLabel.topAnchor.constraint(equalTo: pokemonImageView.bottomAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            nameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
     }
     

@@ -38,11 +38,10 @@ class ListCell: UITableViewCell {
             pokemonImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             pokemonImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
 
-            
             nameLabel.leadingAnchor.constraint(equalTo: pokemonImageView.trailingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     

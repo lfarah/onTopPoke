@@ -87,7 +87,7 @@ public final class DetailsViewController: UIViewController {
             
             evolutionContainer.topAnchor.constraint(equalTo: evolutionTitleLabel.bottomAnchor, constant: 8),
             evolutionContainer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            evolutionContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            evolutionContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
 }

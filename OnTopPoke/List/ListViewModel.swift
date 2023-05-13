@@ -29,7 +29,6 @@ public final class ListViewModel {
         
         isLoading = true
         do {
-            // TODO Consider pagination
             try requestHandler.request(route: .getSpeciesList(limit: itemsPerPage, offset: pageNumber * self.itemsPerPage)) { [weak self] (result: Result<SpeciesResponse, Error>) -> Void in
                 switch result {
                 case .success(let response):

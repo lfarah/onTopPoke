@@ -31,7 +31,6 @@ public final class DetailsViewModel {
     }
     
     private func loadDetails(handler: @escaping () -> Void) {
-        // TODO fetch details using your request handler, using the APIRouter endpoints
         do {
             try requestHandler.request(route: .getSpecies(species.url)) { [weak self] (result: Result<SpeciesDetails, Error>) -> Void in
                 switch result {

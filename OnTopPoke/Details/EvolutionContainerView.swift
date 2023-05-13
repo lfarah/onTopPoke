@@ -34,7 +34,7 @@ public final class EvolutionContainerView: UIView {
         NSLayoutConstraint.activate([
             evolutionStack.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             evolutionStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            evolutionStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            evolutionStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
         ])
     }
     
